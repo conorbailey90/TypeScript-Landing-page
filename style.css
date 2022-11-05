@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+h1{
+    font-size: 10vw;
+    letter-spacing: -0.5vw;
+    margin-right: 1rem;
+}
+
+.hero__header{
+    transform: translateY(100%);
+    transition: 1s;
+}
+
+span{
+    display: inline-block;
+    overflow: hidden;
+}
+
+canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+html, body{
+    background-color: #151515;
+}
+
+.panel__container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+}
+
+.panel{
+    position: relative;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+
+
+}
+
+.text__wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.text__wrap.active{
+    opacity: 1;
+}
+
+.panel h1{
+    font-size: 15vw;
+    margin-right: 1rem;
+}
+
+.hero-text{
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    display: grid;
+    width: 100%;
+  
+    grid-template-columns: repeat(12, 1fr);
+    color: rgba(240, 248, 255, 0.826);
+}
+
+.hero-text div:nth-child(1){
+    grid-area: 1 / 1 / 1 / 13;
+}
+
+.hero-text div:nth-child(2){
+    grid-area: 2 / 3 / 3 / 13;
+}
+
+.hero-text div:nth-child(3){
+    grid-area: 3 / 3 / 4 / 13;
+    text-align: right;
+}
+
+.forward{
+    animation: lift 100s linear infinite;
+}
+
+.reverse{
+    animation: lift-reverse 100s linear infinite;
+}
+
+@keyframes lift {
+    0%{
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+
+    50%{
+        transform: translate(-50%, -1000%) rotate(-90deg);
+    }
+
+    100%{
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+}
+
+@keyframes lift-reverse {
+    0%{
+        transform: translate(-50%, -1000%) rotate(-90deg);
+    }
+
+    50%{
+        transform: translate(-50%, -50%) rotate(-90deg);
+    }
+
+    100%{
+        transform: translate(-50%, -1000%) rotate(-90deg);
+    }
+}
